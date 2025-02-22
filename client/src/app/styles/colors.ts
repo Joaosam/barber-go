@@ -1,6 +1,6 @@
 const colors = {
   purple: {
-    primary: "8162FF",
+    primary: "#8162FF",
     secondary: "#221C3D",
   },
   black: {
@@ -8,9 +8,11 @@ const colors = {
     secondary: "#1A1B1F",
   },
   gray: {
-    primary: "#26272B",
-    secondary: "#4E525B",
-    tertiary: "#838896",
+    100: "#26272B",
+    200: "#4E525B",
+    300: "#838896",
+    400: "#B2B5C3",
+    500: "#E5E5E5",
   },
   red: {
     primary: "#EF4444",
