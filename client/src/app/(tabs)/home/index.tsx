@@ -1,61 +1,18 @@
 import {
   View,
   Text,
-  StyleSheet,
   TextInput,
   Pressable,
   SafeAreaView,
   ScrollView,
 } from "react-native";
-import colors from "../styles/colors";
+
 import { Feather } from "@expo/vector-icons";
 import ImageScroller from "@/app/components/imageScroller";
+import colors from "@/app/styles/colors";
+import styles from "./styles";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.black.primary,
-  },
-  wrapperTitle: {
-    width: "100%",
-    padding: 16,
-    gap: 8,
-    alignItems: "flex-start",
-  },
-  title: {
-    color: colors.white,
-    fontSize: 24,
-  },
-  caption: {
-    color: colors.gray[400],
-    fontSize: 16,
-  },
-  wrapperFinder: {
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 16,
-  },
-  inputFind: {
-    borderWidth: 1,
-    borderColor: colors.gray[100],
-    padding: 10,
-    borderRadius: 8,
-    color: colors.gray[400],
-    fontSize: 16,
-    flex: 1,
-    backgroundColor: colors.black.secondary,
-  },
-  buttonFind: {
-    backgroundColor: colors.purple.primary,
-    padding: 10,
-    borderRadius: 8,
-    marginLeft: 8,
-  },
-});
-
-export default function Index() {
+export default function Home() {
   const images = [
     "https://utfs.io/f/c97a2dc9-cf62-468b-a851-bfd2bdde775f-16p.png",
     "https://utfs.io/f/45331760-899c-4b4b-910e-e00babb6ed81-16q.png",

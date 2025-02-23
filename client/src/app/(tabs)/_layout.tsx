@@ -1,6 +1,6 @@
+import colors from "@/app/styles/colors";
 import { Feather } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
-import colors from "../styles/colors";
 
 export default function TabsLayout() {
   return (
@@ -18,7 +18,7 @@ export default function TabsLayout() {
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
           tabBarIcon: ({ color, size }) => (
             <Feather name="home" size={size} color={color} />
