@@ -52,6 +52,12 @@ const styles = StyleSheet.create({
     marginInline: 8,
     alignItems: "center",
   },
+  name: {
+    color: colors.white,
+    fontSize: 16,
+    fontWeight: "bold",
+    paddingLeft: 8,
+  },
 });
 
 export default styles;

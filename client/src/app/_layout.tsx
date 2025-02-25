@@ -1,13 +1,12 @@
-import { Stack } from "expo-router";
-import { StatusBar } from "react-native";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Slot } from "expo-router";
 
-export default function Layout() {
+const queryClient = new QueryClient();
+
+export default function RootLayout() {
   return (
-    <>
-      <StatusBar barStyle="light-content" />
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="(tabs)" />
-      </Stack>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <Slot />
+    </QueryClientProvider>
   );
 }

@@ -3,19 +3,20 @@ import styles from "./styles";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import colors from "@/app/styles/colors";
 import { router } from "expo-router";
+import { barbershopProps } from "../imageScroller";
 
 interface BookingItemProps {
-  readonly imageUrl: string;
+  readonly barbershop: barbershopProps;
 }
 
-export default function BookingItem({ imageUrl }: BookingItemProps) {
+export default function BookingItem({ barbershop }: BookingItemProps) {
   return (
     <SafeAreaView style={styles.container}>
       <View>
         <Image
-          source={{ uri: imageUrl }}
+          source={{ uri: barbershop.image }}
           style={styles.image}
-          resizeMode="stretch"
+          resizeMode="cover"
         />
         <View style={styles.rating}>
           <MaterialCommunityIcons
@@ -27,9 +28,11 @@ export default function BookingItem({ imageUrl }: BookingItemProps) {
         </View>
       </View>
       <View style={{ gap: 8 }}>
-        <Text style={styles.title}>Vintage Barber</Text>
+        <Text style={styles.name} numberOfLines={1}>
+          {barbershop.name}
+        </Text>
         <Text style={styles.caption}>
-          Avenida São Sebastião, 357, São Paulo
+          {barbershop.address}, {barbershop.city}, {barbershop.state}
         </Text>
       </View>
       <Pressable
