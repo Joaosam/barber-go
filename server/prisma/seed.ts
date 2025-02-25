@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import { randomUUID } from "node:crypto";
 
 const barbershops = [
   {
@@ -51,6 +52,7 @@ async function seedDB() {
     for (const shop of barbershops) {
       await prisma.barberShop.create({
         data: {
+          id: randomUUID(),
           name: shop.name,
           image: shop.image,
           address: shop.address,
