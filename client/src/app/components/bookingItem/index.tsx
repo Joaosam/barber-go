@@ -37,7 +37,7 @@ export default function BookingItem({ barbershop }: BookingItemProps) {
       </View>
       <Pressable
         style={styles.wrapperButton}
-        onPress={() => router.replace("/(tabs)/home/(booking)")}
+        onPress={() => router.push(`/(tabs)/home/(booking)/${barbershop.id}`)}
       >
         <Text style={styles.title}>Reservar</Text>
       </Pressable>

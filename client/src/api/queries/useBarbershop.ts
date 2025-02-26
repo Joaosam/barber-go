@@ -18,5 +18,7 @@ export function useBarbershop() {
       const response = await api.get("/barbershop/list");
       return response.data;
     },
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
   });
 }

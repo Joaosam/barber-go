@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.wrapperTitle}>
           <Text style={styles.title}>
             Olá, <Text style={{ fontWeight: "700" }}>Faça seu login!</Text>
