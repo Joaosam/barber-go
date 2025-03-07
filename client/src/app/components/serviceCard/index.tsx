@@ -1,18 +1,23 @@
 import { Image, Pressable, Text, View } from "react-native";
 import styles from "./styles";
+import { router } from "expo-router";
 
 interface ServiceCardProps {
+  readonly id: string;
   readonly name: string;
   readonly price: number;
   readonly description: string;
   readonly imageUrl: string;
+  readonly barberShopName?: string;
 }
 
 export default function ServiceCard({
+  id,
   name,
   price,
   description,
   imageUrl,
+  barberShopName,
 }: ServiceCardProps) {
   return (
     <View style={styles.serviceCard}>
@@ -34,7 +39,15 @@ export default function ServiceCard({
           >
             <Text style={styles.servicePrice}>R$ {price.toFixed(2)}</Text>
 
-            <Pressable style={styles.bookButton}>
+            <Pressable
+              style={styles.bookButton}
+              onPress={() =>
+                router.push({
+                  pathname: "/(tabs)/home/(booking)/(services)/[id]",
+                  params: { id, barberShopName },
+                })
+              }
+            >
               <Text style={styles.bookButtonText}>Agendar</Text>
             </Pressable>
           </View>
