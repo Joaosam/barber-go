@@ -34,7 +34,9 @@ export default function CardConfirmation({
     <View style={styles.container}>
       <View style={styles.row}>
         <Text style={styles.title}>{serviceName}</Text>
-        <Text style={[styles.value, { fontWeight: "bold" }]}>R${price}</Text>
+        <Text style={[styles.value, { fontWeight: "bold" }]}>
+          R$ {price?.toFixed(2).replace(".", ",")}
+        </Text>
       </View>
 
       {!!date && (

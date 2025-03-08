@@ -5,11 +5,10 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.black.primary,
-    paddingTop: 60,
+    paddingTop: 20,
     paddingInline: 16,
   },
   header: {
-    flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
@@ -59,6 +58,7 @@ export default StyleSheet.create({
     paddingBlock: 24,
   },
   timeSectionContainer: {
+    marginLeft: 16,
     flexDirection: "row",
     gap: 12,
   },

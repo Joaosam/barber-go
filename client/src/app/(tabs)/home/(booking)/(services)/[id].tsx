@@ -1,6 +1,13 @@
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useState } from "react";
-import { Text, View, TouchableOpacity, ScrollView, Alert } from "react-native";
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  ScrollView,
+  Alert,
+  SafeAreaView,
+} from "react-native";
 import { Calendar, DateData } from "react-native-calendars";
 import { services } from "../[id]";
 import styles from "./styles";
@@ -45,7 +52,6 @@ export default function Services() {
   const renderHeader = (date: string) => {
     const dateObject = date ? new Date(date) : new Date();
     const month = dateObject.toLocaleString("pt-BR", { month: "long" });
-    const year = dateObject.getFullYear();
 
     return (
       <View style={styles.calendarHeader}>
@@ -56,7 +62,7 @@ export default function Services() {
             fontWeight: "bold",
           }}
         >
-          {month.charAt(0).toUpperCase() + month.slice(1)} {year}
+          {month.charAt(0).toUpperCase() + month.slice(1)}
         </Text>
         <View style={{ flexDirection: "row", gap: 16 }}>
           <TouchableOpacity
@@ -94,7 +100,7 @@ export default function Services() {
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.textHeader}>Fazer Reserva</Text>
         <TouchableOpacity onPress={router.back}>
@@ -134,6 +140,12 @@ export default function Services() {
                 color: colors.gray[400],
               },
             },
+            "stylesheet.calendar.main": {
+              week: {
+                marginTop: 3,
+                flexDirection: "row",
+              },
+            },
           }}
         />
       </View>
@@ -143,6 +155,7 @@ export default function Services() {
           <ScrollView
             contentContainerStyle={styles.timeSectionContainer}
             horizontal
+            showsHorizontalScrollIndicator={false}
           >
             {timeChips.map((time) => (
               <TouchableOpacity
@@ -183,6 +196,6 @@ export default function Services() {
           <Text style={styles.confirmButtonText}>Confirmar</Text>
         </TouchableOpacity>
       </View>
-    </ScrollView>
+    </SafeAreaView>
   );
 }

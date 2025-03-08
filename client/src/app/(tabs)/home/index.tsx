@@ -12,7 +12,6 @@ import ImageScroller from "@/app/components/imageScroller";
 import colors from "@/app/styles/colors";
 import styles from "./styles";
 import { useBarbershop } from "@/api/queries/useBarbershop";
-import { useMemo } from "react";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
@@ -24,18 +23,6 @@ export default function Home() {
     { title: "Populares", data: [...barbershops].reverse() },
   ];
 
-  const formattedDate = useMemo(() => {
-    const today = new Date();
-    const fullDayName = format(today, "EEEE", { locale: ptBR });
-    const shortDayName = fullDayName.split("-")[0];
-
-    const capitalizedDayName =
-      shortDayName.charAt(0).toUpperCase() + shortDayName.slice(1);
-    const restOfDate = format(today, ", d 'de' MMMM", { locale: ptBR });
-
-    return `${capitalizedDayName}${restOfDate}`;
-  }, []);
-
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -43,7 +30,11 @@ export default function Home() {
           <Text style={styles.title}>
             Olá, <Text style={{ fontWeight: "700" }}>Faça seu login!</Text>
           </Text>
-          <Text style={styles.caption}>{formattedDate}</Text>
+          <Text style={styles.caption}>
+            {format(new Date(), "EE',' dd 'de' MMMM", {
+              locale: ptBR,
+            })}
+          </Text>
         </View>
 
         <View style={styles.wrapperFinder}>
