@@ -38,10 +38,6 @@ export default function Services() {
     setSelectedTime("");
   }
 
-  function handleTimeSelect(time: any) {
-    setSelectedTime(time);
-  }
-
   function handleConfirmBooking() {
     Alert.alert(
       `Agendamento confirmado para dia ${selectedDate?.day} às ${selectedTime}`
@@ -164,7 +160,7 @@ export default function Services() {
                   styles.timeChip,
                   selectedTime === time && styles.timeChipSelected,
                 ]}
-                onPress={() => handleTimeSelect(time)}
+                onPress={() => setSelectedTime(time)}
               >
                 <Text
                   style={[
