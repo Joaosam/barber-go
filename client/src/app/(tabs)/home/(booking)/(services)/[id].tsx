@@ -45,6 +45,22 @@ export default function Services() {
     router.back();
   }
 
+  const goToPreviousMonth = () => {
+    const previousMonth = new Date(currentMonth);
+    previousMonth.setMonth(previousMonth.getMonth() - 1);
+    setCurrentMonth(previousMonth);
+    setSelectedDate(undefined);
+    setSelectedTime("");
+  };
+
+  const goToNextMonth = () => {
+    const nextMonth = new Date(currentMonth);
+    nextMonth.setMonth(nextMonth.getMonth() + 1);
+    setCurrentMonth(nextMonth);
+    setSelectedDate(undefined);
+    setSelectedTime("");
+  };
+
   const renderHeader = (date: string) => {
     const dateObject = date ? new Date(date) : new Date();
     const month = dateObject.toLocaleString("pt-BR", { month: "long" });
@@ -81,18 +97,6 @@ export default function Services() {
         </View>
       </View>
     );
-  };
-
-  const goToPreviousMonth = () => {
-    const previousMonth = new Date(currentMonth);
-    previousMonth.setMonth(previousMonth.getMonth() - 1);
-    setCurrentMonth(previousMonth);
-  };
-
-  const goToNextMonth = () => {
-    const nextMonth = new Date(currentMonth);
-    nextMonth.setMonth(nextMonth.getMonth() + 1);
-    setCurrentMonth(nextMonth);
   };
 
   return (

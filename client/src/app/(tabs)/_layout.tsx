@@ -26,6 +26,14 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
+        name="booking"
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Feather name="calendar" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="profile"
         options={{
           tabBarIcon: ({ color, size }) => (
