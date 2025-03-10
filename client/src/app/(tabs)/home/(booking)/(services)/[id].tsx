@@ -114,7 +114,7 @@ export default function Services() {
           minDate={new Date().toISOString()}
           onDayPress={handleDateSelect}
           hideArrows
-          hideExtraDays={true}
+          hideExtraDays
           renderHeader={renderHeader}
           markedDates={{
             [selectedDate?.dateString ?? ""]: {
@@ -190,8 +190,12 @@ export default function Services() {
         />
 
         <TouchableOpacity
-          style={styles.confirmButton}
+          style={[
+            styles.confirmButton,
+            (!selectedDate || !selectedTime) && styles.confirmButtonDisabled,
+          ]}
           onPress={handleConfirmBooking}
+          disabled={!selectedDate || !selectedTime}
         >
           <Text style={styles.confirmButtonText}>Confirmar</Text>
         </TouchableOpacity>

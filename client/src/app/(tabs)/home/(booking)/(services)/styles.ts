@@ -89,6 +89,9 @@ export default StyleSheet.create({
     alignItems: "center",
     marginTop: 20,
   },
+  confirmButtonDisabled: {
+    opacity: 0.3,
+  },
   confirmButtonText: {
     color: colors.white,
     fontSize: 16,
