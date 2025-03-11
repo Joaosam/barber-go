@@ -1,0 +1,130 @@
+import colors from "@/app/styles/colors";
+import { StyleSheet } from "react-native";
+
+export default StyleSheet.create({
+  appointmentCardTouchable: {
+    marginHorizontal: 16,
+    marginBottom: 16,
+    borderRadius: 16,
+    shadowColor: colors.purple.primary,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  completedCardTouchable: {
+    shadowColor: "transparent",
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0,
+    shadowRadius: 0,
+    elevation: 0,
+  },
+  activeCardTouchable: {
+    borderWidth: 1,
+    borderColor: "rgba(190, 163, 255, 0.3)",
+  },
+  appointmentCard: {
+    backgroundColor: colors.black.secondary,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: colors.gray[100],
+    paddingInline: 16,
+    flexDirection: "row",
+  },
+  appointmentLeftColumn: {
+    flex: 2,
+    justifyContent: "space-between",
+    paddingVertical: 16,
+    paddingRight: 16,
+  },
+  appointmentRightColumn: {
+    flex: 1,
+    paddingVertical: 16,
+    paddingLeft: 16,
+    alignItems: "center",
+    justifyContent: "center",
+    borderLeftWidth: 1,
+    borderLeftColor: colors.gray[100],
+  },
+  statusContainer: {
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 99,
+    backgroundColor: colors.purple.secondary,
+    alignSelf: "flex-start",
+    marginBottom: 12,
+  },
+  completedStatus: {
+    backgroundColor: colors.gray[100],
+  },
+  statusText: {
+    color: colors.purple.primary,
+    fontWeight: "600",
+  },
+  completedStatusText: {
+    color: colors.gray[300],
+  },
+  serviceName: {
+    color: colors.white,
+    fontSize: 18,
+    fontWeight: "700",
+    marginBottom: 12,
+  },
+  barbershopContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  barbershopImage: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+  },
+  barbershopName: {
+    color: colors.white,
+    fontSize: 16,
+    marginLeft: 8,
+  },
+  monthText: {
+    color: colors.white,
+    fontSize: 18,
+    textAlign: "center",
+    fontWeight: "500",
+  },
+  dayText: {
+    color: colors.white,
+    fontSize: 24,
+    fontWeight: "600",
+    textAlign: "center",
+    marginVertical: 4,
+  },
+  appointmentTime: {
+    color: colors.white,
+    fontSize: 16,
+    textAlign: "center",
+    marginBottom: 8,
+    fontWeight: "500",
+  },
+  rateIndicator: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: colors.purple.secondary,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 20,
+    marginTop: 12,
+  },
+  rateIndicatorText: {
+    color: colors.purple.primary,
+    fontSize: 14,
+    fontWeight: "600",
+    marginLeft: 4,
+  },
+  subtleIndicator: {
+    marginTop: 10,
+    width: 26,
+    height: 26,
+    borderRadius: 13,
+    backgroundColor: "rgba(190, 163, 255, 0.2)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});

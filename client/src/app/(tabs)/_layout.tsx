@@ -26,7 +26,7 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="booking"
+        name="appointments"
         options={{
           tabBarIcon: ({ color, size }) => (
             <Feather name="calendar" size={size} color={color} />
