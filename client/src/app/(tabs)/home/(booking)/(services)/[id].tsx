@@ -39,10 +39,17 @@ export default function Services() {
   }
 
   function handleConfirmBooking() {
-    Alert.alert(
-      `Agendamento confirmado para dia ${selectedDate?.day} às ${selectedTime}`
-    );
-    router.back();
+    // Navigate to the confirmation page instead of showing an alert
+    router.push({
+      pathname: "/(tabs)/home/(booking)/confirmation",
+      params: {
+        serviceName: service?.name,
+        barbershopName: barberShopName,
+        date: selectedDate?.timestamp,
+        time: selectedTime,
+        price: service?.price,
+      },
+    });
   }
 
   const goToPreviousMonth = () => {
