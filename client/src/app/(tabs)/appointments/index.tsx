@@ -3,6 +3,7 @@ import { Feather } from "@expo/vector-icons";
 import colors from "@/app/styles/colors";
 import styles from "./styles";
 import AppointmentCard from "@/app/components/appointmentCard";
+import { router } from "expo-router";
 
 export interface AppointmentProps {
   readonly id: string;
@@ -73,16 +74,16 @@ export default function Appointments() {
 
   const handleAppointmentSubmit = (appointment: AppointmentProps) => {
     if (appointment.status === "confirmed") {
-      // Mostrar detalhes do agendamento confirmado
-      Alert.alert(
-        "Detalhes do Agendamento",
-        `Serviço: ${appointment.serviceName}\nBarbearia: ${
-          appointment.barbershopName
-        }\nData: ${appointment.date}\nHorário: ${
-          appointment.time
-        }\nValor: R$ ${appointment.price.toFixed(2)}`,
-        [{ text: "OK" }]
-      );
+      router.push({
+        pathname: "/(tabs)/appointments/reservationDetails",
+        params: {
+          serviceName: appointment.serviceName,
+          barbershopName: appointment.barbershopName,
+          date: 1742947200000,
+          time: appointment.time,
+          price: appointment.price.toString(),
+        },
+      });
     } else if (appointment.status === "completed") {
       // Navegar para a tela de avaliação
       Alert.alert(

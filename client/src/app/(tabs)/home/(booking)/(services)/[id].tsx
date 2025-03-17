@@ -5,7 +5,6 @@ import {
   View,
   TouchableOpacity,
   ScrollView,
-  Alert,
   SafeAreaView,
 } from "react-native";
 import { Calendar, DateData } from "react-native-calendars";
