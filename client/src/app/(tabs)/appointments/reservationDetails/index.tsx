@@ -28,7 +28,6 @@ export default function ReservationDetails() {
   };
 
   const handleCancelReservation = () => {
-    // Logic to cancel reservation would go here
     Alert.alert(
       "Confirmar o cancelamento?",
       `Você pode reagendar ou cancelar sua reserva a qualquer momento.`,
