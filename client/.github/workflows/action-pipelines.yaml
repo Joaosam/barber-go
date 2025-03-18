@@ -1,0 +1,32 @@
+name: Pipelines
+
+on:
+  push:
+    branches:
+      - main
+      - br-*
+    paths:
+      - "*/**.tsx"
+      - "*/**.ts"
+      - "*/**.yaml"
+
+jobs:
+  pipelines:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+
+      - name: Install dependencies
+        run: pnpm install
+        working-directory: ${{ github.workspace }}
+
+      - name: Run unit tests
+        run: pnpm run test
+        working-directory: ${{ github.workspace }}
