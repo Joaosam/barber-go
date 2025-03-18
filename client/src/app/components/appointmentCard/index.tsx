@@ -58,6 +58,7 @@ export default function AppointmentCard({
 
   return (
     <TouchableOpacity
+      testID="appointment-card"
       style={[
         styles.appointmentCardTouchable,
         isCompleted && styles.completedCardTouchable,

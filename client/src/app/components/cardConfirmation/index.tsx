@@ -1,8 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 import styles from "./styles";
-import { format } from "date-fns";
-import { ptBR } from "date-fns/locale";
+import { formatDate } from "@/utils/formatDate";
 
 interface CardConfirmationProps {
   readonly serviceName?: string;
@@ -19,17 +18,6 @@ export default function CardConfirmation({
   time,
   barbershopName,
 }: CardConfirmationProps) {
-  function formatDate(timestamp: number) {
-    const date = new Date(timestamp);
-    const localDate = new Date(
-      date.getFullYear(),
-      date.getMonth(),
-      date.getUTCDate()
-    );
-
-    return format(localDate, "d 'de' MMMM", { locale: ptBR });
-  }
-
   return (
     <View style={styles.container}>
       <View style={styles.row}>
