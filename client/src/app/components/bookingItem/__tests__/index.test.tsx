@@ -3,7 +3,6 @@ import { render, fireEvent, screen } from "@testing-library/react-native";
 import BookingItem from "../index";
 import { router } from "expo-router";
 
-// Mock expo-router
 jest.mock("expo-router", () => ({
   router: {
     push: jest.fn(),
