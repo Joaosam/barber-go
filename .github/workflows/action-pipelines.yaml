@@ -56,5 +56,5 @@ jobs:
         working-directory: ${{ github.workspace }}/client
 
       - name: Run tests
-        run: pnpm run test -- --ci --watchAll=false
+        run: pnpm run test:ci
         working-directory: ${{ github.workspace }}/client
