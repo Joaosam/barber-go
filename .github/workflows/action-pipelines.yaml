@@ -7,7 +7,8 @@ on:
       - br-*
 
 jobs:
-  pipelines:
+  server:
+    name: Backend Pipeline
     runs-on: ubuntu-latest
 
     steps:
@@ -18,13 +19,54 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22.x
+          cache: "pnpm"
+          cache-dependency-path: server/pnpm-lock.yaml
+
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       - name: Install dependencies
-        run: |
-          npm install -g pnpm
-          pnpm install
-        working-directory: ${{ github.workspace }}
+        run: pnpm install
+        working-directory: ${{ github.workspace }}/server
 
-      - name: Run unit tests
+      - name: Run linting
+        run: pnpm run lint
+        working-directory: ${{ github.workspace }}/server
+
+      - name: Run tests
         run: pnpm run test
-        working-directory: ${{ github.workspace }}
+        working-directory: ${{ github.workspace }}/server
+
+  client:
+    name: Frontend Pipeline
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: "pnpm"
+          cache-dependency-path: frontend/pnpm-lock.yaml
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+        working-directory: ${{ github.workspace }}/client
+
+      - name: Run linting
+        run: pnpm run lint
+        working-directory: ${{ github.workspace }}/client
+
+      - name: Run tests
+        run: pnpm run test
+        working-directory: ${{ github.workspace }}/client
+
+      - name: Build
+        run: pnpm run build
+        working-directory: ${{ github.workspace }}/client
