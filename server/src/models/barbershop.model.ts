@@ -28,4 +28,16 @@ export class BarberShop {
       },
     });
   }
+
+  static async create({
+    ...data
+  }: Omit<BarberShopProps, "id" | "createdAt" | "updatedAt">) {
+    return db.barberShop.create({
+      data: {
+        id: randomUUID(),
+        ...data,
+        createdAt: new Date(),
+      },
+    });
+  }
 }
